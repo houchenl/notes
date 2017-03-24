@@ -1,0 +1,2 @@
+# notes
+notes on learn.
