@@ -1,2 +1,2 @@
 # notes
-notes on learn.
+集中存放学习技术过程中的笔记
