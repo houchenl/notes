@@ -6,3 +6,6 @@
 
 ### 2. 在sublime新标签页中打开文件
 Sublime Text - Preferences - Settings User，添加"open_files_in_new_window": false
+
+### 3. shell 退出
+mac默认情况下，在shell中输入exit时，不会自动关闭shell窗口。为了实现自动关闭，需要做如下设置：终端 - 偏好设置 - 描述文件 - shell - 当shell退出时 - 关闭窗口。
