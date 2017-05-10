@@ -1,12 +1,12 @@
 
 # RecyclerView
 
-## 基础使用
+## 1. 基础使用
 
-### 1. 添加引用
+### 1.1. 添加引用
 `compile 'com.android.support:recyclerview-v7:25.3.1'`
 
-### 2. 定义布局
+### 1.2. 定义布局
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
@@ -23,7 +23,7 @@
 
 ```
 
-### **3. 定义Bean文件和item布局**
+### 1.3. 定义Bean文件和item布局
 Bean文件。属性定义为private，并为其提供get/set方法和构造函数，无需其它特殊处理。
 ``` java
 public class Poem {
@@ -114,7 +114,7 @@ item布局。直接通过别名引用bean文件的属性即可。
 </layout>
 ```
 
-### **4. 定义ViewHolder**
+### 1.4. 定义ViewHolder
 方法一：使用DataBinding。先通过DataBindingUtil.bind，从itemView中获取item布局对应的ViewDataBinding，然后通过为binding对象的别名设置相应对象即可刷新数据。无需获取到item布局中单个控件的id，因为是整体刷新，所以ViewDataBinding使用通过父引用即可。
 ``` java
 class NormalViewHolder extends RecyclerView.ViewHolder {
@@ -163,7 +163,7 @@ class NormalViewHolderV2 extends RecyclerView.ViewHolder {
 }
 ```
 
-### **5. 定义Adapter**
+### 1.5. 定义Adapter
 1. 继承RecyclerView.Adapter，并传入CustomViewHolder。然后实现其中3个方法。  
 2. NormalViewHolder onCreateViewHolder(ViewGroup parent, int viewType)方法，主要做两件事：一、从layout文件中inflate出itemView；二、根据itemView生成CustomViewHolder对象。这个方法使用databinding和传统方式实现是一样的。
 ``` java
@@ -174,6 +174,7 @@ public NormalViewHolderV2 onCreateViewHolder(ViewGroup parent, int viewType) {
 }
 ```
 3. void onBindViewHolder(NormalViewHolder holder, int position)，一个参数表示数据位置，一个参数表示布局对象，该方法用于使用position位置的数据刷新布局。刷新有两种方式。  
+
 方法一：使用DataBinding。使用这种方式时，不需要一个一个控件的指定数据，为整个布局的databinding中设置的数据指定值并刷新即可，databinding会自动刷新数据。
 ``` java
 @Override
@@ -195,7 +196,7 @@ public void onBindViewHolder(NormalViewHolderV2 holder, int position) {
 }
 ```
 
-### 6. 配置RecyclerView并加载数据显示
+### 1.6. 配置RecyclerView并加载数据显示
 1. 找到控件引用  
 2. 设置LayoutManager  
 3. 创建并设置adapter  
