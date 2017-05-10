@@ -1,5 +1,6 @@
 
 # RecyclerView
+RecyclerView是google推出的ListView和GridView的替代品，强制实现了ViewHolder，内部实现了view复用，更加高效。
 
 ## 1. 基础使用
 
@@ -209,3 +210,9 @@ mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        mBinding.recyclerView.setAdapter(new NormalAdapter(getTestData()));
 mBinding.recyclerView.setAdapter(new NormalAdapterV2(getTestData()));
 ```
+
+## 参考资料
+[RecyclerView Xamarin][]
+
+
+[RecyclerView Xamarin]: https://developer.xamarin.com/guides/android/user_interface/recyclerview/
