@@ -24,7 +24,7 @@
 ```
 
 ### **3. 定义Bean文件和item布局**
-Bean文件。字段定义为private，并为其提供get/set方法和构造函数，无需其它特殊处理。
+Bean文件。属性定义为private，并为其提供get/set方法和构造函数，无需其它特殊处理。
 ``` java
 public class Poem {
 
@@ -65,7 +65,7 @@ public class Poem {
 
 }
 ```
-item布局。直接通过别名引用bean文件的字段即可。
+item布局。直接通过别名引用bean文件的属性即可。
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
@@ -83,6 +83,7 @@ item布局。直接通过别名引用bean文件的字段即可。
         android:background="#fff">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -92,6 +93,7 @@ item布局。直接通过别名引用bean文件的字段即可。
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/tv_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -171,7 +173,7 @@ public NormalViewHolderV2 onCreateViewHolder(ViewGroup parent, int viewType) {
     return new NormalViewHolderV2(view);
 }
 ```
-3. void onBindViewHolder(NormalViewHolder holder, int position)，一个参数表示数据位置，一个参数表示布局对象，该方法用于使用position位置的数据刷新布局。刷新有两种方式。
+3. void onBindViewHolder(NormalViewHolder holder, int position)，一个参数表示数据位置，一个参数表示布局对象，该方法用于使用position位置的数据刷新布局。刷新有两种方式。  
 方法一：使用DataBinding。使用这种方式时，不需要一个一个控件的指定数据，为整个布局的databinding中设置的数据指定值并刷新即可，databinding会自动刷新数据。
 ``` java
 @Override
