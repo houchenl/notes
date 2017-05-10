@@ -4,7 +4,7 @@
 ## 基础使用
 
 ### 1. 添加引用
-compile 'com.android.support:recyclerview-v7:25.3.1'
+`compile 'com.android.support:recyclerview-v7:25.3.1'`
 
 ### 2. 定义布局
 ``` xml
