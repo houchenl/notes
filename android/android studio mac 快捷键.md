@@ -24,3 +24,13 @@ command + option + O
 # 生成代码，打开generate选项卡
 command + N
 ```
+
+## action
+```
+# 打开action查找面板
+command + A + shift
+
+# convert java file to kotlin
+
+
+```

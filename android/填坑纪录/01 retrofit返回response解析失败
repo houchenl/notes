@@ -1,0 +1,5 @@
+
+retrofit发送请求，总是返回这种错误
+Attempt to invoke virtual method 'int java.lang.Integer.intValue()' on a null object reference
+
+分析后，发现是返回的json中只有data，没有retCode和retMsg，导致解析失败。
