@@ -65,3 +65,8 @@ Android library projects that provides easy to use and extensible Barcode Scanne
 
 [JStumpp/awesome-android](https://github.com/JStumpp/awesome-android)  
 A curated list of awesome Android packages and resources.  
+
+[googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)  
+A collection of samples to discuss and showcase different architectural tools and patterns for Android apps.  
+
+
