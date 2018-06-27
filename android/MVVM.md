@@ -1,6 +1,10 @@
 
 # MVVM
 
+参考：  
+[浅谈 MVC、MVP 和 MVVM 架构模式](https://draveness.me/mvx)  
+[如何构建Android MVVM应用程序](https://www.jianshu.com/p/2fc41a310f79)  
+
 
 ## 三种模式
 
