@@ -18,6 +18,7 @@
 
 ### MVP
 <img src="https://raw.githubusercontent.com/houchenl/notes/master/images/mvvm_mvp.png">
+
 >**View**: 对应`Activity`和`xml`，负责`View`的绘制和与用户交互  
 >**Model**: 实体模型  
 >**Presenter**: 负责完成`View`与`Model`之间的交互和业务逻辑  
