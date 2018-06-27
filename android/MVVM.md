@@ -5,17 +5,24 @@
 ## 三种模式
 
 ### MVC
-> **View**: xml布局文件  
-> **Model**: 实体模型  
-> **Controllor**: `Activity`/`Fragment`，业务逻辑、数据处理、UI处理  
+<img src="https://raw.githubusercontent.com/houchenl/notes/master/images/mvvm_mvc.png">
+
+>**View**: 视图，用户界面，`xml`文件  
+>**Model**: 数据保存，实体模型，`bean`文件  
+>**Controllor**: 业务逻辑、数据处理、UI处理，`Activity`/`Fragment`  
+
+**互动模式**：`View` 传送指令到 `Controller`，`Controller` 完成业务逻辑后，要求 `Model` 改变状态，`Model` 将新的数据发送到 `View`，用户得到反馈，所有通信都是单向的。  
 
 `Android`框架本身就是`MVC`模式，但其中作为`View`的`xml`视图功能太弱，`Activity`/`Fragment`实际是`View`和`Controllor`的合体，既要负责视图显示，又要加入控制逻辑，承担功能过多，代码量太大。  
 
 
 ### MVP
-> **View**: 对应`Activity`和`xml`，负责`View`的绘制和与用户交互  
-> **Model**: 实体模型  
-> **Presenter**: 负责完成`View`与`Model`之间的交互和业务逻辑  
+<img src="https://raw.githubusercontent.com/houchenl/notes/master/images/mvvm_mvp.png">
+>**View**: 对应`Activity`和`xml`，负责`View`的绘制和与用户交互  
+>**Model**: 实体模型  
+>**Presenter**: 负责完成`View`与`Model`之间的交互和业务逻辑  
+
+**互动模式**：各部分之间的通信，都是双向的；`View` 与 `Model` 不发生联系，都通过 `Presenter` 传递；`View` 非常薄，不部署任何业务逻辑，称为"被动视图"（Passive View），即没有任何主动性，而 `Presenter`非常厚，所有逻辑都部署在那里。  
 
 因为MVC模式中Activity/Fragment中代码过多，在MVP模式中，把部分业务逻辑代码从Activity/Fragment中移出，放在Presenter中，在Presenter中持有View(Activity/Fragment)的引用，然后在Presenter调用View暴露的接口对视图进行操作，这样实现了把视图操作和业务逻辑区分开来。MVP能够让Activity成为真正的View而不是View和Control的合体，Activity只做UI相关的事。但是这个模式还是存在一些不好的地方，比较如说：  
 * Activity需要实现各种跟UI相关的接口，同时要在Activity中编写大量的事件，然后在事件处理中调用presenter的业务处理方法，View和Presenter只是互相持有引用并互相做回调,代码不美观。  
@@ -24,9 +31,13 @@
 
 
 ### MVVM
-> **View**: 对应于`Activity`和`xml`，负责`View`的绘制以及与用户交互  
-> **Model**: 实体模型, 处理业务数据的获取、存储、数据状态变化、校验，vm会根据需要从`Model`中获取数据  
-> **ViewModel**: 负责完成`View`与`Model`间的交互，负责业务逻辑  
+<img src="https://raw.githubusercontent.com/houchenl/notes/master/images/mvvm_mvvm.png">
+
+>**View**: 对应于`Activity`和`xml`，负责`View`的绘制以及与用户交互  
+>**Model**: 实体模型, 处理业务数据的获取、存储、数据状态变化、校验，vm会根据需要从`Model`中获取数据  
+>**ViewModel**: 负责完成`View`与`Model`间的交互，负责业务逻辑  
+
+**互动模式**：`MVVM` 模式将 `Presenter` 改名为 `ViewModel`，基本上与 `MVP` 模式完全一致。唯一的区别是，它采用双向绑定（data-binding）：`View`的变动，自动反映在 `ViewModel`，反之亦然。  
 
 MVVM的关键技术是`Data Binding`。View的变化可以自动的反应在ViewModel，ViewModel的数据变化也会自动反应到View上。这样开发者就不用处理接收事件和View更新的工作，框架已经帮你做好了。MVVM模式的优势有：  
 * 数据驱动: 在MVVM中，以前开发模式中必须先处理业务数据，然后根据的数据变化，去获取UI的引用然后更新UI，同样也是通过UI来获取用户输入，而在MVVM中，数据和业务逻辑处于一个独立的View Model中，ViewModel只要关注数据和业务逻辑，不需要和UI或者控件打交道。由数据自动去驱动UI去自动更新UI，UI的改变又同时自动反馈到数据，数据成为主导因素，这样使得在业务逻辑处理只要关心数据，方便而且简单很多。
@@ -47,6 +58,8 @@ MVVM的关键技术是`Data Binding`。View的变化可以自动的反应在View
 
 ## MVVM实现
 
+<img src="https://raw.githubusercontent.com/houchenl/notes/master/images/mvvm_1.png">
+
 ### 1. 分工
 
 #### View
@@ -61,6 +74,8 @@ Model 的职责很简单，基本就是实体模型（Bean）同时包括Retrofi
 ### 2. 协作
 
 #### ViewModel和View协作
+<img src="https://raw.githubusercontent.com/houchenl/notes/master/images/mvvm_2.png">
+
 ViewModel 和View 是通过数据绑定的方式连接在一起的。数据的绑定 DataBinding 已经提供好了，简单的定义一些ObservableField就能把数据和控件绑定在一起了（如TextView的text属性），但是DataBinding框架提供的不够全面，比如说如何让一个URL绑定到一个ImageView让这个ImageView能自动去加载url指定的图片，如何把数据源和布局模板绑定到一个ListView，让ListView可以不需要去写Adapter和ViewHolder 相关的东西，而只是通过简单的绑定的方式把ViewModel的数据源绑定到Xml的控件里面就能快速的展示列表呢？这些就需要我们做一些工作和简单的封装。前者可以通过BindingAdapter实现，后者可以使用自定义Adapter实现。  
 
 #### ViewModel和Model协作
