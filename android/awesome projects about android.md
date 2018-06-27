@@ -69,4 +69,6 @@ A curated list of awesome Android packages and resources.
 [googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)  
 A collection of samples to discuss and showcase different architectural tools and patterns for Android apps.  
 
+[cutler/AndroidTemplate](https://github.com/cutler/AndroidTemplate)    
+Android项目模板，包含Http请求、上传/下载等功能。  
 
