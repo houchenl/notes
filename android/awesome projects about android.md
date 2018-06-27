@@ -56,6 +56,10 @@ A common architecture for Android applications developing based on MVP, integrat
 [Blankj/AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)  
 Android developers should collect the following utils(updating). [Android开发人员不得不收集的代码(持续更新中)](https://blankj.com/2016/07/31/android-utils-code/)  
 
+[dm77/barcodescanner](https://github.com/dm77/barcodescanner)  
+Barcode Scanner Libraries for Android  
+Android library projects that provides easy to use and extensible Barcode Scanner views based on ZXing and ZBar.  
+
 
 ## 综合
 
