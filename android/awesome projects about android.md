@@ -4,6 +4,27 @@
 awesome projects about android on Github or somewhere else.  
 
 
+## 组件
+
+[santalu/mask-edittext](https://github.com/santalu/mask-edittext)  
+A simple edittext with mask  
+
+[wdullaer/MaterialDateTimePicker](https://github.com/wdullaer/MaterialDateTimePicker)  
+Pick a date or time on Android in style  
+
+[square/android-times-square](https://github.com/square/android-times-square)  
+Standalone Android widget for picking a single date from a calendar view. 日历日期选择器  
+
+[Othershe/CombineBitmap](https://github.com/Othershe/CombineBitmap)  
+Android 仿钉钉、微信 群聊组合头像  
+
+[bingoogolapple/BGAProgressBar-Android](https://github.com/bingoogolapple/BGAProgressBar-Android)  
+带百分比数字的水平、圆形进度条  
+
+[laobie/StatusBarUtil](https://github.com/laobie/StatusBarUtil)  
+A util for setting status bar style on Android App. http://t.cn/Rq746Kb  
+
+
 ## 组件-列表
 
 [scwang90/SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)  
@@ -59,6 +80,9 @@ Android developers should collect the following utils(updating). [Android开发�
 [dm77/barcodescanner](https://github.com/dm77/barcodescanner)  
 Barcode Scanner Libraries for Android  
 Android library projects that provides easy to use and extensible Barcode Scanner views based on ZXing and ZBar.  
+
+[bugsnag/bugsnag-android](https://github.com/bugsnag/bugsnag-android)  
+Bugsnag's Android crash reporting library automatically detects crashes in your Android apps, collecting diagnostic information and immediately notifying your development team, helping you to understand and resolve issues as fast as possible.  
 
 
 ## 综合
