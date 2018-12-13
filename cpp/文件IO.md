@@ -1,7 +1,7 @@
 
 # 文件IO
 
-进行文件操作，需要在源文件中包含头文件`<iostream>`和`<fstream>`。  
+进行文件操作，需要在源文件中包含头文件`<fstream>`。  
 
 `<fstream>`中定义了三个新的数据类型：  
 
@@ -95,7 +95,6 @@ file.seekg( n, ios::end );
 ## 逐行读入
 
 ```
-#include <iostream>
 #include <fstream>
 
 int main()
