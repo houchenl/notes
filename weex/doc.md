@@ -7,20 +7,6 @@
 [jcenter | weex][2]  
 
 
-## 基础使用
-
-创建项目： `weexpack create appName`  
-创建页面： 在`项目根目录/src/`目录下创建文件`fileName.vue`，并编辑  
-编译页面： 在项目根目录执行`npm run build`，编译整个应用，src/下vue文件被编译，在项目根目录/dist/下生成同名对应js文件  
-集成渲染： 把dist/下的js文件复制到android应用src/main/assets/目录下，应用中加载文件，并渲染。渲染成功后，把生成的view添加到原生页面已有布局中，或直接显示view。  
-```java
-String fileContent = WXFileUtils.loadAsset("test.js", this);
-mInstance.render("helloWeex", fileContent, null, null, WXRenderStrategy.APPEND_ASYNC);
-
-setContentView(view);    // view为渲染生成的页面
-```
-
-
 ## weex调用原生
 
 1. 原生继承WXModule类，类在app中注册到wxenginesdk中。因为weex通过反射调用原生方法，所以类内方法需要定义为public。并且方法上要加注解@JSMethod(uiThread = true)，表明方法是否在UI线程执行。  
@@ -56,35 +42,8 @@ public class MyModule extends WXModule {
 </script>
 ```
 
-
-## 踩坑指南
-
-### Environment variable $ANDROID_HOME not found !
-
-> 15:19:50 : Environment variable $ANDROID_HOME not found !
-> You should set ANDROID_HOME in your environment first.
-> See https://spring.io/guides/gs/android/
-
-在weex项目下，执行`weex run android`命令时，报上述错误。  
-但实际上`ANDROID_HOME`环境变量已经配置，且`echo ANDROID_HOME`也能正常打出。  
-此时，仍报上面的错误，原因不明。？？？  
-
-
-### onException: createInstanceReferenceError: Vue is not defined [fixed]
-
-安卓加载js文件时，报这个错误。  
-解决：使用weex sdk的>= 0.10.0的新版本即可，如`com.taobao.android:weex_sdk:0.18.0`  
-
-
-### Warning: npm 5 is not supported yet! [fixed]
-
-We recommend using npm 4 until some bugs are resolved.  
-To install npm 4, you can just run `npm i npm@4 -g` or use `n` to manage your npm version with node.  
-
-
-### weex调用原生方法不起作用
-
-vue文件中，点击事件用@click，而不能用onclick。`<text @click="click">testMyModule2</text>`  
+## 模块
+对于不依赖于UI的功能，weex推荐将它们包装到模块中，然后使用`weex.requireModule('xxx')`引入。模块分为weex内置模块和原生模块，原生模块通过注册集成到weex中。weex通过原生模块调用原生功能，如网络、存储、剪贴板和页面导航等。  
 
 
 ## 注意
