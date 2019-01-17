@@ -5,6 +5,7 @@
 [weex官网首页][1]  
 [Release Note | Weex][3]  
 [jcenter | weex][2]  
+[vue - playground][4]  
 
 
 ## weex调用原生
@@ -61,3 +62,4 @@ public class MyModule extends WXModule {
 [1]: https://weex.incubator.apache.org/cn/
 [2]: http://jcenter.bintray.com/com/taobao/android/weex_sdk/
 [3]: http://weex-project.io/releasenote.html
+[4]: http://dotwe.org/vue

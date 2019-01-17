@@ -19,6 +19,7 @@ npm install weex-toolkit -g
 ```bash
 weex create awesome-app
 ```
+然后进入项目根目录，运行`npm install`安装依赖模块  
 
 
 ## 开发

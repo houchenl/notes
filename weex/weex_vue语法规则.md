@@ -1,9 +1,12 @@
 
 # weex_vue语法规则.md
 
-## 引用
+## 资源
 - [vue.js首页][1]  
 - [在 Weex 中使用 Vue.js][2]  
+- [vue教程v2.x][3]
+- [vue - guide][5]
+- [API - Vue 2.x][4]
 
 ## 结构
 
@@ -66,3 +69,6 @@
 
 [1]: https://vuejs.org/
 [2]: https://weex.incubator.apache.org/cn/guide/use-vue.html
+[3]: https://cn.vuejs.org/v2/guide/
+[4]: https://cn.vuejs.org/v2/api/
+[5]: https://vuejs.org/v2/guide/
